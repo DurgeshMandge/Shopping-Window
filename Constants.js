@@ -1,4 +1,4 @@
-const shopItemsData = [
+export const shopItemsData = [
     {
       id: "jfhgbvnscs",
       name: "Jacket_1",
