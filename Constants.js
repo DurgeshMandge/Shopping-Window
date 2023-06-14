@@ -1,3 +1,4 @@
+export const logoURL = "https://tse1.mm.bing.net/th?id=OIP.AZkmckbQrW-r4bPZwLJ67AHaE7&pid=Api&rs=1&c=1&qlt=95&w=159&h=105";
 export const shopItemsData = [
     {
       id: "jfhgbvnscs",
