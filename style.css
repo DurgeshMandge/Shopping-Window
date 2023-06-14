@@ -1,0 +1,52 @@
+.services{
+    display: flex;
+}
+.items{
+    list-style-type: none;
+}
+.nav{
+    margin: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+    display: flex;
+    justify-content: space-between;
+    border: solid;
+    text-align: center;
+}
+.card{
+    width: 200px;
+    height: 250px;
+    border: 10px solid black;
+    padding: 10px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+.cloth-card{
+    position: absolute;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+.rest-card > img{
+    width: 100%;
+}
+.cloth-card > img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.cardList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;   
+}
+.search{
+    text-align: center;
+    margin: 2%;
+}
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
