@@ -1,18 +1,6 @@
 import { useState } from "react";
-import {RestList} from "../constants.js";
-import { imageURL } from "../constants.js";
 import {shopItemsData} from "../constants.js";
 
-const RestCard = ({cloudinaryImageId,name,cuisines,city}) =>{
-    return (
-            <div className="card">
-                <img src= {imageURL + cloudinaryImageId} />
-                <h4>{name}</h4>
-                <h5>{city}</h5>
-                <h6>{cuisines.join(", ")}</h6>
-            </div>
-    );
-}
 
 
 const ClothCard = ({name,color,price,desc,img}) =>{
@@ -28,8 +16,6 @@ const ClothCard = ({name,color,price,desc,img}) =>{
 }
 
 
-
-
         //1. Hooks
         //2. Onchange Functionality (update searchText -> e.target.value)
         //3. Onclick functionality  (update restList -> filter data)
@@ -40,7 +26,6 @@ const ClothCard = ({name,color,price,desc,img}) =>{
         //8. Conditional Rendering -> Shimmer effect
         
 const Body = () =>{
-
 
 
     // useEffect(()=>{
@@ -59,8 +44,8 @@ const Body = () =>{
 
     //---->     Filtering Functionality
 
-    function filterData(Restaurent,searchText){
-        return (Restaurent.filter((rest)=>rest.data.name.includes(searchText)));
+    function filterClothData(shopData,searchText){
+        return (shopData.filter((shop)=>shop.desc.includes(searchText)));
     }
 
 
@@ -68,8 +53,7 @@ const Body = () =>{
     //---->     Hooks
 
     const [searchText,setSearchText]=useState("");
-    const [Restaurants,setRestList]=useState(RestList);
-    const [filteredRestaurants,setFilteredRestList]=useState(RestList);
+    const [option1,setOption1]=useState("Option1");
 
     const [shopData,setShopData]=useState(shopItemsData);
     const [filteredShopData,setFilteredShopData]=useState(shopData);
@@ -95,20 +79,29 @@ const Body = () =>{
                 //---->      Onclick functionality
 
                 onClick={
-                    ()=>{setFilteredRestList(filterData(Restaurants,searchText));
+                    ()=>{
+                        setFilteredShopData(filterClothData(shopData,searchText));
                 }}
             >Search</button>
         </div>
 
+        {/* <div>
+            <select id="dropdown">
+                <option value={option1}>Option 1</option>
+                
+                <option value={filterD}>Option 2</option>
+                <option value={filterD}>Option 3</option>
+                <option value={filterD}>Option 4</option>
+            </select>
+            <button
+                onClick={console.log(value)}
+            >Apply</button>
+        </div> */}
+
         <div className="cardList ">
 
             {/*  //----> Mapping Functionality                                  */}
-
-            {filteredRestaurants.map((rest)=>{
-                return (<RestCard {...rest.data} {...rest.data.slugs} key={rest.data.id}/>);
-            })}
-
-            {
+            {   
                 filteredShopData.map((item)=>{
                     return (<ClothCard key={item.id} {...item} />);
                 })
